@@ -12,11 +12,13 @@ import javax.persistence.*;
 @Table(name = "homevisit")
 public class HomeVisit {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     @Column(name = "city")
     private String city;
+    @Column(name = "zipcode")
+    private String zipcode;
     @Column(name = "street")
     private String street;
     @Column(name = "house")

@@ -5,28 +5,32 @@ import com.lkreski.homedoc.service.HomeVisitService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
+
 @Controller
-public class PatientSignIn {
+public class PatientSignInController {
 
-    private HomeVisitService homeVisitService;
+    @Autowired
+     HomeVisitService homeVisitService;
 
-    @Autowired(required = true)
-    @Qualifier(value = "homeVisitService")
-    public void setHomeVisitService(HomeVisitService visitService){
-        this.homeVisitService = visitService;
-    }
 
 
     @RequestMapping("/patientSignIn")
-    public String signIn(){
+    public String signIn(Model model){
+        model.addAttribute("homeVisit", new HomeVisit());
         return "patientsignin";
     }
 
     @RequestMapping(value = "/patientSignIn/add", method = RequestMethod.POST)
-    public String addNewVisit(){
+    public String addNewVisit(@Valid HomeVisit homeVisit, BindingResult result, Model model){
+        System.out.println(homeVisit);
+        homeVisitService.addVisit(homeVisit);
         return "patientsignin";
     }
 

@@ -8,12 +8,10 @@ import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
 
-@Configuration
-@Component
+
 public class DataSourceBean {
 
-    @Bean
-    @Primary
+
     public DataSource dataSource() {
         return DataSourceBuilder
                 .create()

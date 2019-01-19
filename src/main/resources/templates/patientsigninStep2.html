@@ -61,28 +61,8 @@
 <div class="container marketing">
     <div class="container">
         <h2 class="featurette-heading">Chuj się. <span
-                class="text-muted"></p>
-        <form th:action="@{/patientSignIn/add}" th:object="${homeVisit}" method="post">
-            <div class="form-group">
+                class="text-muted"></span></h2>
 
-                <label for="city">Miejscowość:</label>
-                <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="np. Bydgoszcz">
-
-                <label for="zipcode">Miejscowość:</label>
-                <input type="text" th:field="*{zipcode}" class="form-control" id="zipcode" placeholder="np. 86-150">
-
-            <label for="street">Ulica:</label>
-                <input type="text" th:field="*{street}" class="form-control" id="street" placeholder="np. Sezamkowa">
-
-                    <label for="house">Numer domu:</label>
-                    <input type="text" th:field="*{house}" class="form-control" id="house" placeholder="np. 10">
-
-                    <label for="flat">Numer mieszkania:</label>
-                    <input type="text" th:field="*{flat}" class="form-control" id="flat" placeholder="np. 11">
-
-                </div>
-            <button type="submit"  class="btn btn-primary">Submit</button>
-        </form>
         <div class="mdl-card mdl-shadow--2dp">
 
             <div class="mdl-card__supporting-text">

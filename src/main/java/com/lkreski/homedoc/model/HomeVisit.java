@@ -25,6 +25,9 @@ public class HomeVisit {
     private String house;
     @Column(name = "flat")
     private String flat;
+    /** TODO
+     * Rozbudować encję o email, phonenuber, date wizyty, date rejestracji, ilosc osob
+     */
 
 
 }

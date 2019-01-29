@@ -5,6 +5,10 @@ import org.springframework.stereotype.Service;
 import java.util.HashMap;
 @Service("dotpayService")
 public class DotpayService {
+
+    public enum OPERATIONSTATUS {
+        NEW, PROCESSING, COMPETED, REJECTED
+    }
     public String generateChk(HashMap<String,String> values){
         String result = "";
         StringBuilder stringBuilder = new StringBuilder(result);
@@ -19,7 +23,6 @@ public class DotpayService {
         stringBuilder.append(values.getOrDefault("description",""));
         stringBuilder.append(values.getOrDefault("control",""));
         stringBuilder.append(values.getOrDefault("channel",""));
-        stringBuilder.append(values.getOrDefault("control",""));
         stringBuilder.append(values.getOrDefault("credit_card_brand",""));
         stringBuilder.append(values.getOrDefault("ch_lock",""));
         stringBuilder.append(values.getOrDefault("channel_groups",""));
@@ -96,4 +99,7 @@ public class DotpayService {
         result =stringBuilder.toString();
         return result;
     }
+
+
+
 }

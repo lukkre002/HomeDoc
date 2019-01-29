@@ -1,6 +1,7 @@
 package com.lkreski.homedoc.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.SpringVersion;
 import org.springframework.core.env.Environment;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -22,6 +23,8 @@ public class HomeController {
     public String index(Model model){
         model.addAttribute("datetime", new Date());
         model.addAttribute("mode", appMode);
+        System.out.println("version: " + SpringVersion.getVersion());
+
         return "index";
     }
 

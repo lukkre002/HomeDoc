@@ -9,22 +9,27 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+
 @Repository
 public class HomeVisitDaoImpl implements HomeVisitDao {
     private static final Logger logger = LoggerFactory.getLogger(HomeVisitDaoImpl.class);
 
     @Autowired
-    private SessionFactory sessionFactory;
+    EntityManager entityManagerFactory;
+
 
     protected Session getSession(){
-        return sessionFactory.getCurrentSession();
+        SessionFactory unwrap = entityManagerFactory.unwrap(SessionFactory.class);
+        return unwrap.getCurrentSession();
     }
 
 
 
     @Override
     public void addHomeVisit(HomeVisit visit) {
-        getSession().saveOrUpdate(visit);
+        entityManagerFactory.persist(visit);
         logger.info("Wizyta zapisana prawidłowo." + visit);
 
     }

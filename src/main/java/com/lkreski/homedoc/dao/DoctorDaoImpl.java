@@ -8,6 +8,8 @@ import org.hibernate.criterion.Restrictions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
 import javax.print.Doc;
 import java.util.List;
 
@@ -15,11 +17,14 @@ import java.util.List;
 public class DoctorDaoImpl implements DoctorDao<Doctor, Integer> {
 
 
+
     @Autowired
-    private SessionFactory sessionFactory;
+    EntityManagerFactory entityManagerFactory;
+
 
     protected Session getSession(){
-        return sessionFactory.getCurrentSession();
+        Session unwrap = entityManagerFactory.unwrap(Session.class);
+        return unwrap;
     }
     @Override
     public void persist(Doctor entity) {
@@ -47,9 +52,11 @@ public class DoctorDaoImpl implements DoctorDao<Doctor, Integer> {
     }
     @Override
     public List<Doctor> findAllByCity(String city){
-    Session session = getSession();
+//    Session session = getSession();
+        EntityManager entityManager = entityManagerFactory.createEntityManager();
+        Session session = entityManager.unwrap(Session.class);
         Criteria criteria = session.createCriteria(Doctor.class);
         List<Doctor> list= criteria.add(Restrictions.eq("city", city)).add(Restrictions.eq("verified", true)).list();
-    return list;
+return list;
     }
 }

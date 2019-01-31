@@ -18,7 +18,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="/" th:href="@{/}">
-        <img src="homedoclogo.png" th:src="@{/images/homedoclogo.png}" width="150" height="40" class="d-inline-block align-top" alt="homedoclogo"/>
+        <img src="homedoclogo.png" th:src="@{/images/homedoclogo.png}" width="150" height="40" class="d-inline-block align-top img-responsive" alt="homedoclogo"/>
 
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -40,8 +40,8 @@
                     Dla lekarzy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/doctorSignUp}">Zarejestruj się</a>
-                    <a class="dropdown-item" href="#">Zaloguj się</a>
+                    <a class="dropdown-item" th:href="@{/registration}">Zarejestruj się</a>
+                    <a class="dropdown-item" th:href="@{/login}">Zaloguj się</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Informacje</a>
                 </div>

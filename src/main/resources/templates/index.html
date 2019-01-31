@@ -16,7 +16,7 @@
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 
     <a class="navbar-brand" href="/" th:href="@{/}">
-        <img src="homedoclogo.png" th:src="@{/images/homedoclogo.png}" width="150" height="40" class="d-inline-block align-top" alt="homedoclogo"/>
+        <img src="homedoclogo.png" th:src="@{/images/homedoclogo.png}" width="150" height="40" class="d-inline-block align-top img-responsive" alt="homedoclogo"/>
 
     </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
@@ -38,8 +38,8 @@
                     Dla lekarzy
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" th:href="@{/doctorSignUp}">Zarejestruj się</a>
-                    <a class="dropdown-item" href="#">Zaloguj się</a>
+                    <a class="dropdown-item" th:href="@{/registration}">Zarejestruj się</a>
+                    <a class="dropdown-item" th:href="@{/login}">Zaloguj się</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="#">Informacje</a>
                 </div>
@@ -61,7 +61,7 @@
     </ol>
     <div class="carousel-inner" role="listbox">
         <div class="carousel-item active">
-            <img class="first-slide img-fluid"
+            <img class="first-slide img-fluid img-responsive"
                  th:src="@{/images/mainpage/kadra545.jpg}"
                  alt="First slide">
             <div class="container">
@@ -73,7 +73,7 @@
             </div>
         </div>
         <div class="carousel-item">
-            <img class="second-slide img-fluid"
+            <img class="second-slide img-fluid img-responsive"
                  th:src="@{/images/mainpage/GoogleMaps.jpg}"
                  alt="Second slide">
             <div class="container">
@@ -115,7 +115,7 @@
     <!-- Three columns of text below the carousel -->
     <div class="row">
         <div class="col-lg-4">
-            <img class="rounded-circle"
+            <img class="rounded-circle img-responsive"
                  th:src="@{/images/mainpage/step1.jpg}"
                  alt="Generic placeholder image" width="200" height="200">
             <h2>Krok 1</h2>
@@ -124,7 +124,7 @@
             <p><a class="btn btn-secondary" th:href="@{/patientSignIn}" role="button">Zarejestruj online &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle"
+            <img class="rounded-circle img-responsive"
                  th:src="@{/images/mainpage/step2.jpg}"
                  alt="Generic placeholder image" width="200" height="200">
             <h2>Krok 2</h2>
@@ -134,7 +134,7 @@
             <p><a class="btn btn-secondary" href="#" role="button">Dowiedz się więcej &raquo;</a></p>
         </div><!-- /.col-lg-4 -->
         <div class="col-lg-4">
-            <img class="rounded-circle"
+            <img class="rounded-circle img-responsive"
                  th:src="@{/images/mainpage/step3.jpg}"
                  alt="Generic placeholder image" width="200" height="200">
             <h2>Krok 3</h2>
@@ -159,7 +159,7 @@
             z doświadczonej kadry lekarskiej, która posługuje się zarówno językiem polskim jak i angielskim</p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto"  th:src="@{/images/mainpage/kadra545.jpg}"
+            <img class="featurette-image img-fluid mx-auto img-responsive"  th:src="@{/images/mainpage/kadra545.jpg}"
                  alt="Generic placeholder image">
         </div>
     </div>
@@ -170,43 +170,43 @@
         <div class="col-md-7 push-md-5">
             <h2 class="featurette-heading">Wizyta domowa. <span class="text-muted">Kiedy wezwać lekarza?</span>
             </h2>
-            <p class="lead"><p><img class="rounded-circle"
+            <p class="lead"><p><img class="rounded-circle img-responsive"
                                     th:src="@{/images/mainpage/checked.jpg}"
                                     alt="Generic placeholder image" width="15" height="15"> Gorączka</p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Ból ucha </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Katar </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Wysypka </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Biegunka </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Zaprcie </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Nudności/Wymioty </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Ból brzucha </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/checked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Inne objawy </p>
             </p>
         </div>
         <div class="col-md-5 pull-md-7">
-            <img class="featurette-image img-fluid mx-auto" th:src="@{/images/mainpage/lekarzwdomu.jpg}"
+            <img class="featurette-image img-fluid mx-auto img-responsive" th:src="@{/images/mainpage/lekarzwdomu.jpg}"
                  alt="Generic placeholder image">
         </div>
     </div>
@@ -217,46 +217,46 @@
         <div class="col-md-7">
             <h2 class="featurette-heading">Wizyta domowa. <span class="text-muted">Kiedy nie należy wzywać lekarza?</span></h2>
             <p class="lead">
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Stany wymagające hospitalizacji lub karetki pogotowia </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Stany wymagające użycia specjalistycznego sprzętu </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Pacjent nieprzytomny </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Poród  </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Wypadek komunikacyjny </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Porażenie prądem  </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Niekontrolowane krwawienie  </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Brak oddechu  </p>
             </p>
-            <p><img class="rounded-circle"
+            <p><img class="rounded-circle img-responsive"
                     th:src="@{/images/mainpage/unchecked.jpg}"
                     alt="Generic placeholder image" width="15" height="15"> Nagła reakcja alergiczna  </p>
             </p>
             </p>
         </div>
         <div class="col-md-5">
-            <img class="featurette-image img-fluid mx-auto" th:src="@{/images/mainpage/karetka.jpg}"
+            <img class="featurette-image img-fluid mx-auto img-responsive" th:src="@{/images/mainpage/karetka.jpg}"
                  alt="Generic placeholder image">
         </div>
     </div>

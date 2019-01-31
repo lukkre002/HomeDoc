@@ -14,8 +14,6 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
-import org.springframework.orm.hibernate4.HibernateTransactionManager;
-import org.springframework.orm.hibernate4.LocalSessionFactoryBean;
 import org.springframework.orm.jpa.JpaVendorAdapter;
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean;
 import org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter;
@@ -48,7 +46,7 @@ public class HibernateConfig {
         properties.put("hibernate.dialect", "org.hibernate.dialect.PostgreSQL9Dialect");
         properties.put("hibernate.show_sql", true);
         properties.put("hibernate.format_sql", false);
-        properties.put("hibernate.hbm2ddl.auto","create-drop");
+        properties.put("hibernate.hbm2ddl.auto","update");
         return properties;
     }
 
@@ -60,6 +58,7 @@ public class HibernateConfig {
         factoryBean.setDataSource(dataSource());
         factoryBean.setPackagesToScan(new String[] { "com.lkreski.homedoc.model" });
         factoryBean.setJpaVendorAdapter(jpaVendorAdapter());
+        factoryBean.setJpaProperties(hibernateProperties());
         return factoryBean;
     }
 

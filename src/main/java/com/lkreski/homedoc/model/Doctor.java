@@ -10,7 +10,12 @@ import javax.validation.constraints.NotEmpty;
 @Table(name= "doctor")
 public class Doctor {
 
-
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    private int did;
+    @OneToOne
+    @JoinColumn(name="user_id")
+    private User user;
     @NotEmpty
     @Column(name = "phonenumber")
     String phonenumber;

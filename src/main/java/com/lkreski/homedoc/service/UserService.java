@@ -41,4 +41,12 @@ public class UserService {
         user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
         userRepository.save(user);
     }
+
+    public void saveDoctorUser(User user, HashSet<Role> roleHashSet) {
+        user.setRoles(roleHashSet);
+        userRepository.save(user);
+    }
+    public Role findByRole(String role){
+        return roleRepository.findByRole(role);
+    }
 }

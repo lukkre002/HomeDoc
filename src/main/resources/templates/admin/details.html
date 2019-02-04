@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:th="http://www.thymeleaf.org">
+      xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+>
 
 <head>
     <title>Admin Page</title>
@@ -11,6 +13,7 @@
     <link rel="stylesheet" type="text/css" th:href="@{/styles/doctor.css}"/>
     <link th:href="@{/styles/carousel.css}"  rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap.min.css">
 
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -19,9 +22,12 @@
 </head>
 
 <body>
-
 <!------ Include the above in your HEAD tag ---------->
-
+<script>
+    function rowClicked(value) {
+        location.href = "/admin/details?param=" + value;
+    }
+</script>
 <nav class="navbar navbar-icon-top navbar-expand-lg navbar-dark bg-dark">
     <a class="navbar-brand" href="/" th:href="@{/}">
         <img src="homedoclogo.png" th:src="@{/images/homedoclogo.png}" width="150" height="40" class="d-inline-block align-top" alt="homedoclogo"/>
@@ -61,7 +67,7 @@
                     <i class="fa fa-bell">
                         <span class="badge badge-info">11</span>
                     </i>
-                     Wizyty
+                    Wizyty
                 </a>
             </li>
             <li class="nav-item">
@@ -86,37 +92,38 @@
 <div class="container">
     <div class="col-md-7">
         <h2 class="featurette-heading">Witaj! <span
-                class="text-muted">Zalogowałeś się poprawnie!</span></h2>
-        <p class="lead">Jednak w celu zapewnienia pełnej rzetelności obłsugi musisz dopełnić ostatnie formalności, takich
-        jak wskazanie swojej specjalizacji, podanie numeru telefonu, miasta w którym chcesz udzielać wizyt. Po pełnej weryfikacji otrzymasz
-        wiadomość zwrotną oraz dostęp do wizyt lekarskich. Pozdrawiamy zespół HomeDoc</p>
+                class="text-muted">Panel akceptacji lekarzy!</span></h2>
+        <p class="lead">W tym panelu możesz podejrzeć szczegóły danego lekarza oraz go zaakceptować</p>
     </div>
 </div >
-    <div class="container marketing">
-    <form th:action="@{/doctor/home}" th:object="${doctor}" method="post" enctype="multipart/form-data">
+<div class="container marketing">
+    <form th:action="@{/admin/download}" method="get" th:object="${doctor}">
         <div class="form-group">
 
+            <label for="id">Identyfikator doktora:</label>
+            <input readonly="readonly" type="text" th:field="*{did}" class="form-control" id="id">
+            <label for="name">Imię:</label>
+            <input readonly="readonly" type="text" th:field="*{user.name}" class="form-control" id="name" placeholder="np. Bydgoszcz">
+            <label for="lastname">Nazwisko:</label>
+            <input readonly="readonly" type="text" th:field="*{user.lastName}" class="form-control" id="lastname" placeholder="np. Bydgoszcz">
+
+            <label for="email">Email:</label>
+            <input readonly="readonly"  type="text" th:field="*{user.email}" class="form-control" id="email" placeholder="np. 86-150">
+
             <label for="phonenumber">Numer telefonu:</label>
-            <input type="text" th:field="*{phonenumber}" class="form-control" id="phonenumber" maxlength="9" placeholder="np. 603867003">
+            <input readonly="readonly"  type="text" th:field="*{phonenumber}" class="form-control" id="phonenumber" placeholder="np. Sezamkowa">
+
+            <label for="city">Miasto:</label>
+            <input readonly="readonly"  type="text" th:field="*{city}" class="form-control" id="city" placeholder="np. 10">
 
             <label for="specialization">Specjalizacja:</label>
-            <input type="text" th:field="*{specialization}" class="form-control" id="specialization" placeholder="np. Pediatra">
-        </div>
-            <div class="custom-file">
-                <label for="validatedCustomFile">Wskaż plik potwierdzający kwalifikacje.</label>
-                <input type="file" name="file" id="validatedCustomFile" accept="application/pdf" required>
-                <div class="invalid-feedback">Należy wskazać plik</div>
-            </div>
-
-<div class="form-group">
-            <label for="city">Podaj miasto, w którym chcesz świadczyć usługi:</label>
-            <input type="text" th:field="*{city}" class="form-control" id="city" placeholder="np. Bydgoszcz">
-
+            <input readonly="readonly" type="text" th:field="*{specialization}" class="form-control" id="specialization" placeholder="np. 11">
 
         </div>
-        <button type="submit"  class="btn btn-primary" style="float: right">Zarejestruj</button>
+        <button type="submit" class="btn btn-success" name="show" style="float: left">Pokaż dyplom</button>
+
+        <button type="submit" class="btn btn-success" name="confirm" style="float: right">Zaakceptuj</button>
     </form>
-
 
 </div>
 <div>
